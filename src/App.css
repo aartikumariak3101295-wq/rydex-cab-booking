@@ -1,0 +1,1553 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #f4f7f5;
+  background: #080d0c;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --bg: #080d0c;
+  --panel: #101715;
+  --panel-light: #151f1b;
+  --green: #b6ff68;
+  --green-dark: #80d83e;
+  --muted: #94a39a;
+  --border: rgba(255,255,255,.09);
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(ellipse at 75% 8%, rgba(73, 133, 66, .14), transparent 35%),
+    radial-gradient(ellipse at 5% 40%, rgba(46, 110, 79, .09), transparent 35%),
+    var(--bg);
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: transform .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+.app {
+  min-height: 100vh;
+  overflow: hidden;
+  color: #f4f7f5;
+  background: transparent;
+}
+
+.app.dark {
+  background: transparent;
+}
+
+.navbar {
+  width: min(1240px, calc(100% - 64px));
+  min-height: 88px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1.3px;
+  color: #f8fff9;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #d5ff9c, #83dc43);
+  box-shadow: 0 0 28px rgba(166,255,103,.18);
+  color: #101a0b;
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.brand-dot {
+  color: var(--green);
+}
+
+.nav-links, .nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 29px;
+}
+
+.nav-links a {
+  color: #a8b5ad;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color .2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--green);
+}
+
+.nav-actions {
+  gap: 12px;
+}
+
+.theme-toggle, .sign-in {
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 11px 15px;
+  color: #eef6ef;
+  background: rgba(255,255,255,.035);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.theme-toggle:hover, .sign-in:hover {
+  border-color: rgba(182,255,104,.5);
+  background: rgba(182,255,104,.07);
+}
+
+.hero {
+  width: min(1240px, calc(100% - 64px));
+  min-height: 570px;
+  margin: auto;
+  padding: 82px 0 76px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: riseIn .7s ease both;
+}
+
+.eyebrow, .section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 13px var(--green);
+}
+
+.hero h1 {
+  max-width: 620px;
+  margin: 24px 0 20px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(46px, 5.2vw, 75px);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -4px;
+  color: #f5faf5;
+}
+
+.hero h1 span {
+  color: var(--green);
+  text-shadow: 0 0 42px rgba(182,255,104,.13);
+}
+
+.hero-description {
+  max-width: 450px;
+  margin: 0;
+  color: #9ba9a0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin-top: 30px;
+  padding: 16px 23px;
+  border: 0;
+  border-radius: 13px;
+  background: var(--green);
+  color: #14200d;
+  font-weight: 800;
+  font-size: 13px;
+  box-shadow: 0 9px 32px rgba(182,255,104,.12);
+}
+
+.primary-button:hover, .find-ride-button:hover {
+  transform: translateY(-3px);
+  background: #ceffa0;
+  box-shadow: 0 12px 34px rgba(182,255,104,.2);
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+  margin-top: 43px;
+}
+
+.hero-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hero-stats strong {
+  color: #f4faf4;
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+  letter-spacing: -.8px;
+}
+
+.hero-stats span {
+  color: #84938a;
+  font-size: 11px;
+}
+
+.hero-visual {
+  position: relative;
+  min-width: 0;
+  min-height: 410px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 30px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 60% 38%, rgba(139,221,92,.15), transparent 44%),
+    linear-gradient(145deg, #19241e, #0c1310 75%);
+  box-shadow: 0 28px 90px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.06);
+  isolation: isolate;
+}
+
+.hero-visual::before, .hero-visual::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  border: 1px solid rgba(182,255,104,.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-visual::before {
+  width: 360px;
+  height: 360px;
+  top: 10%;
+  left: 20%;
+}
+
+.hero-visual::after {
+  width: 480px;
+  height: 480px;
+  top: -5%;
+  left: 7%;
+  border-color: rgba(182,255,104,.06);
+}
+
+.visual-label, .live-status {
+  position: relative;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  background: rgba(8,15,11,.65);
+  color: #e7f1e8;
+  font-size: 10px;
+  font-weight: 700;
+  backdrop-filter: blur(14px);
+}
+
+.live-status {
+  float: right;
+  color: var(--green);
+}
+
+.city-scene {
+  position: absolute;
+  inset: 70px 0 54px;
+  overflow: hidden;
+}
+
+.sun {
+  position: absolute;
+  top: 13%;
+  right: 22%;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(182,255,104,.17), rgba(182,255,104,.02) 65%, transparent 70%);
+}
+
+.city-skyline {
+  position: absolute;
+  inset: 22% 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  gap: 7px;
+  opacity: .8;
+}
+
+.building {
+  position: relative;
+  flex: 1;
+  max-width: 68px;
+  height: 48%;
+  border: 1px solid rgba(183,222,170,.13);
+  border-bottom: 0;
+  background: linear-gradient(90deg, #17261d, #203528 55%, #142219);
+}
+
+.building:nth-child(2n) {
+  height: 75%;
+}
+
+.building:nth-child(3n) {
+  height: 92%;
+}
+
+.building::after {
+  position: absolute;
+  inset: 12px 8px;
+  content: '';
+  background: repeating-linear-gradient(to bottom, rgba(182,255,104,.2) 0 3px, transparent 3px 15px);
+  opacity: .5;
+}
+
+.route-line {
+  position: absolute;
+  z-index: 2;
+  top: 38%;
+  left: 8%;
+  width: 78%;
+  height: 42%;
+  border: 2px dashed rgba(182,255,104,.62);
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  transform: rotate(-18deg);
+}
+
+.map-pin {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 4px solid #142019;
+  border-radius: 50% 50% 50% 7px;
+  background: var(--green);
+  box-shadow: 0 0 26px rgba(182,255,104,.3);
+  transform: rotate(-45deg);
+}
+
+.map-pin::after {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #142019;
+  content: '';
+}
+
+.map-pin.pickup {
+  top: 27%;
+  left: 17%;
+}
+
+.map-pin.destination {
+  top: 48%;
+  right: 13%;
+  background: #f4f8f4;
+}
+
+.road {
+  position: absolute;
+  right: -10%;
+  bottom: 2%;
+  left: -10%;
+  height: 94px;
+  border-top: 2px solid rgba(255,255,255,.09);
+  border-bottom: 2px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, #111a15, #1a251e, #101711);
+  transform: rotate(-8deg);
+}
+
+.road-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  border-top: 2px dashed rgba(182,255,104,.4);
+}
+
+.hero-car {
+  position: absolute;
+  z-index: 4;
+  right: 25%;
+  bottom: 13%;
+  width: 120px;
+  height: 44px;
+  filter: drop-shadow(0 10px 13px rgba(0,0,0,.5));
+  animation: carFloat 3s ease-in-out infinite;
+}
+
+.car-roof {
+  position: absolute;
+  top: -18px;
+  left: 25px;
+  width: 67px;
+  height: 26px;
+  border: 2px solid #a4ed66;
+  border-radius: 24px 28px 3px 3px;
+  background: linear-gradient(135deg, #435c3a, #192c1b);
+}
+
+.car-window {
+  position: absolute;
+  top: -13px;
+  left: 36px;
+  width: 43px;
+  height: 13px;
+  border-radius: 12px 12px 2px 2px;
+  background: linear-gradient(110deg, #9bc8aa, #203b2b);
+}
+
+.car-body {
+  position: absolute;
+  inset: 5px 0 0;
+  border: 2px solid #b6ff68;
+  border-radius: 12px 17px 8px 8px;
+  background: linear-gradient(120deg, #d1ff9b, #72b83d);
+}
+
+.wheel {
+  position: absolute;
+  z-index: 2;
+  bottom: -5px;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #253229;
+  border-radius: 50%;
+  background: #080d0c;
+}
+
+.wheel:first-of-type {
+  left: 17px;
+}
+
+.wheel:last-of-type {
+  right: 17px;
+}
+
+.visual-footer {
+  position: absolute;
+  right: 20px;
+  bottom: 17px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #aab9ad;
+  font-size: 10px;
+}
+
+.footer-icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: rgba(182,255,104,.1);
+  color: var(--green);
+}
+
+.footer-arrow {
+  margin-left: auto;
+  color: var(--green);
+}
+
+.booking-section {
+  width: min(1120px, calc(100% - 64px));
+  margin: 0 auto 100px;
+  padding-top: 35px;
+  scroll-margin-top: 25px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 27px;
+}
+
+.section-heading h2 {
+  margin: 10px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(28px, 3vw, 39px);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.section-heading p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.step-label {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.booking-card {
+  position: relative;
+  padding: 29px;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 25px;
+  background: linear-gradient(145deg, rgba(23,33,27,.96), rgba(12,18,15,.98));
+  box-shadow: 0 25px 80px rgba(0,0,0,.2), inset 0 1px rgba(255,255,255,.035);
+}
+
+.location-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 44px 1fr;
+  align-items: center;
+  gap: 15px;
+}
+
+.location-input {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 15px;
+  background: rgba(255,255,255,.025);
+  transition: border-color .2s ease, background .2s ease;
+}
+
+.location-input:focus-within {
+  border-color: rgba(182,255,104,.55);
+  background: rgba(182,255,104,.035);
+}
+
+.location-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: rgba(182,255,104,.1);
+  color: var(--green);
+}
+
+.pickup-icon {
+  color: var(--green);
+}
+
+.drop-icon {
+  color: #f4f6f4;
+  background: rgba(255,255,255,.09);
+}
+
+.input-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.input-content label {
+  color: #91a096;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+}
+
+.input-content input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #f4faf5;
+  font-size: 13px;
+}
+
+.input-content input::placeholder {
+  color: #66756b;
+}
+
+.swap-button {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(182,255,104,.25);
+  border-radius: 13px;
+  background: #18251a;
+  color: var(--green);
+  font-size: 18px;
+}
+
+.swap-button:hover {
+  transform: rotate(180deg);
+  background: #243824;
+}
+
+.ride-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 32px 0 17px;
+}
+
+.ride-heading h3 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+  letter-spacing: -.4px;
+}
+
+.ride-heading span {
+  color: #87968b;
+  font-size: 11px;
+}
+
+.ride-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ride-card {
+  position: relative;
+  min-width: 0;
+  padding: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 18px;
+  background: linear-gradient(150deg, #18221c, #101713);
+  transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+
+.ride-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(182,255,104,.35);
+  box-shadow: 0 15px 30px rgba(0,0,0,.18);
+}
+
+.ride-card.selected {
+  border-color: var(--green);
+  background: linear-gradient(145deg, rgba(90,135,57,.2), rgba(18,28,20,.95));
+  box-shadow: inset 0 0 0 1px rgba(182,255,104,.1), 0 0 28px rgba(182,255,104,.06);
+}
+
+.ride-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: radial-gradient(ellipse at center, rgba(182,255,104,.09), transparent 75%);
+}
+
+.ride-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .3s ease;
+}
+
+.ride-card:hover .ride-image img {
+  transform: scale(1.07);
+}
+
+.ride-card h4 {
+  margin: 0;
+  color: #f3f7f3;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.ride-description {
+  min-height: 30px;
+  margin: 6px 0 15px;
+  color: #8d9c91;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.ride-fare {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.ride-fare strong {
+  color: var(--green);
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.ride-fare span {
+  color: #89978d;
+  font-size: 10px;
+}
+
+.selected-check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 50%;
+  background: rgba(8,13,10,.8);
+  color: #a9b8ad;
+  font-size: 12px;
+}
+
+.ride-card.selected .selected-check {
+  border-color: var(--green);
+  background: var(--green);
+  color: #15210f;
+}
+
+.booking-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.fare-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #a0aea3;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.info-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: rgba(255,255,255,.06);
+  color: var(--green);
+}
+
+.find-ride-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 190px;
+  padding: 16px 21px;
+  border: 0;
+  border-radius: 13px;
+  background: var(--green);
+  color: #13200d;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 7px 24px rgba(182,255,104,.1);
+}
+
+.message, .error-message {
+  margin-top: 15px;
+  padding: 13px 15px;
+  border: 1px solid rgba(182,255,104,.2);
+  border-radius: 12px;
+  background: rgba(182,255,104,.06);
+  color: #c8f6a6;
+  font-size: 12px;
+}
+
+.error-message {
+  border-color: rgba(255,115,115,.25);
+  background: rgba(255,90,90,.06);
+  color: #ffaaaa;
+}
+
+.booking-result {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 22px;
+  padding: 22px;
+  border: 1px solid rgba(182,255,104,.25);
+  border-radius: 18px;
+  background: linear-gradient(120deg, rgba(80,128,49,.14), rgba(15,24,18,.9));
+  animation: riseIn .35s ease both;
+}
+
+.success-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  background: var(--green);
+  color: #12200b;
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.booking-result h3 {
+  margin: 2px 0 8px;
+  font-size: 16px;
+}
+
+.result-details {
+  display: grid;
+  gap: 7px;
+  color: #a9b7ac;
+  font-size: 12px;
+}
+
+.booking-id {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.close-result {
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: #b6c2b8;
+  font-size: 21px;
+}
+
+.demo-note {
+  margin: 15px 0 0;
+  color: #6f7d73;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 17px;
+  background: rgba(255,255,255,.018);
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.benefit:hover {
+  transform: translateY(-3px);
+  border-color: rgba(182,255,104,.2);
+}
+
+.benefit-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: rgba(182,255,104,.09);
+  color: var(--green);
+  font-size: 18px;
+}
+
+.benefit h4 {
+  margin: 0 0 5px;
+  color: #eaf2eb;
+  font-size: 12px;
+}
+
+.benefit p {
+  margin: 0;
+  color: #87968b;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: min(1240px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 28px 0 35px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: #718076;
+  font-size: 11px;
+}
+
+.footer-brand {
+  color: #dce7dd;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.footer-brand span {
+  color: var(--green);
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes carFloat {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-5px) rotate(1deg); }
+}
+
+@media (min-width: 1400px) {
+  .hero {
+    padding-top: 95px;
+    padding-bottom: 90px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar, .hero, .site-footer {
+    width: calc(100% - 40px);
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    padding-top: 62px;
+  }
+
+  .hero-content {
+    max-width: 680px;
+  }
+
+  .hero-visual {
+    min-height: 380px;
+  }
+
+  .booking-section {
+    width: calc(100% - 40px);
+  }
+
+  .ride-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ride-image {
+    height: 125px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    min-height: 72px;
+    gap: 10px;
+  }
+
+  .brand {
+    font-size: 21px;
+  }
+
+  .brand-mark {
+    width: 33px;
+    height: 33px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 7px;
+  }
+
+  .theme-toggle, .sign-in {
+    padding: 9px 10px;
+    font-size: 11px;
+  }
+
+  .hero {
+    padding-top: 52px;
+    padding-bottom: 48px;
+  }
+
+  .hero h1 {
+    margin-top: 20px;
+    font-size: clamp(43px, 12vw, 61px);
+    letter-spacing: -2.8px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-stats {
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .hero-stats strong {
+    font-size: 19px;
+  }
+
+  .hero-visual {
+    min-height: 320px;
+    padding: 13px;
+    border-radius: 23px;
+  }
+
+  .city-scene {
+    inset: 65px 0 45px;
+  }
+
+  .hero-car {
+    right: 20%;
+    transform: scale(.82);
+    transform-origin: bottom right;
+  }
+
+  .visual-footer {
+    right: 13px;
+    bottom: 12px;
+    left: 13px;
+  }
+
+  .booking-section {
+    margin-bottom: 65px;
+    padding-top: 10px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+  }
+
+  .booking-card {
+    padding: 17px;
+    border-radius: 20px;
+  }
+
+  .location-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .swap-button {
+    justify-self: center;
+    width: 37px;
+    height: 37px;
+    transform: rotate(90deg);
+  }
+
+  .swap-button:hover {
+    transform: rotate(270deg);
+  }
+
+  .location-input {
+    padding: 12px;
+  }
+
+  .ride-grid {
+    gap: 10px;
+  }
+
+  .ride-card {
+    padding: 11px;
+  }
+
+  .ride-image {
+    height: 85px;
+  }
+
+  .ride-card h4 {
+    font-size: 13px;
+  }
+
+  .ride-fare strong {
+    font-size: 18px;
+  }
+
+  .ride-fare {
+    flex-wrap: wrap;
+  }
+
+  .booking-bottom {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .find-ride-button {
+    width: 100%;
+  }
+
+  .benefits {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .benefit {
+    padding: 16px;
+  }
+
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+/* ===== RYDEX LIGHT THEME FIX ===== */
+
+.app:not(.dark) {
+  --bg: #f5f8f4;
+  --panel: #ffffff;
+  --panel-light: #edf3eb;
+  --muted: #657568;
+  --border: rgba(25, 50, 30, 0.14);
+
+  background: #f5f8f4;
+  color: #17251a;
+}
+
+.app:not(.dark) .navbar {
+  border-bottom-color: rgba(25, 50, 30, 0.12);
+}
+
+.app:not(.dark) .brand,
+.app:not(.dark) .hero h1,
+.app:not(.dark) .hero-stats strong,
+.app:not(.dark) .section-heading h2,
+.app:not(.dark) .ride-heading h3,
+.app:not(.dark) .ride-card h4,
+.app:not(.dark) .benefit h4 {
+  color: #17251a;
+}
+
+.app:not(.dark) .nav-links a {
+  color: #58685b;
+}
+
+.app:not(.dark) .nav-links a:hover {
+  color: #39851f;
+}
+
+.app:not(.dark) .theme-toggle,
+.app:not(.dark) .sign-in {
+  color: #253628;
+  background: #ffffff;
+  border-color: rgba(25, 50, 30, 0.15);
+}
+
+.app:not(.dark) .hero-description,
+.app:not(.dark) .hero-stats span,
+.app:not(.dark) .section-heading p,
+.app:not(.dark) .step-label,
+.app:not(.dark) .ride-heading span,
+.app:not(.dark) .ride-description,
+.app:not(.dark) .ride-fare span,
+.app:not(.dark) .fare-note,
+.app:not(.dark) .benefit p,
+.app:not(.dark) .site-footer,
+.app:not(.dark) .demo-note {
+  color: #657568;
+}
+
+.app:not(.dark) .hero-visual {
+  background:
+    radial-gradient(ellipse at 60% 38%, rgba(130, 200, 100, .19), transparent 44%),
+    linear-gradient(145deg, #e6f1e3, #f8fbf6 75%);
+  border-color: rgba(25, 50, 30, .13);
+  box-shadow: 0 24px 65px rgba(35, 65, 35, .10);
+}
+
+.app:not(.dark) .visual-label,
+.app:not(.dark) .live-status {
+  color: #304b33;
+  background: rgba(255, 255, 255, .84);
+  border-color: rgba(25, 50, 30, .12);
+}
+
+.app:not(.dark) .building {
+  background: linear-gradient(90deg, #c8ddca, #e1eee0 55%, #bed5c0);
+  border-color: rgba(35, 75, 40, .13);
+}
+
+.app:not(.dark) .building::after {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(62, 125, 60, .24) 0 3px,
+    transparent 3px 15px
+  );
+}
+
+.app:not(.dark) .road {
+  background: linear-gradient(180deg, #dce5dc, #cbd8cc, #e3ebe1);
+  border-color: rgba(25, 50, 30, .13);
+}
+
+.app:not(.dark) .road-line {
+  border-top-color: rgba(50, 120, 45, .45);
+}
+
+.app:not(.dark) .car-roof {
+  background: linear-gradient(135deg, #d6e8ce, #a7c79d);
+}
+
+.app:not(.dark) .car-window {
+  background: linear-gradient(110deg, #e9f6ed, #9bbda2);
+}
+
+.app:not(.dark) .booking-card {
+  background: linear-gradient(145deg, #ffffff, #f7faf5);
+  border-color: rgba(25, 50, 30, .13);
+  box-shadow: 0 22px 65px rgba(35, 65, 35, .08);
+}
+
+.app:not(.dark) .location-input {
+  background: #f7faf6;
+  border-color: rgba(25, 50, 30, .14);
+}
+
+.app:not(.dark) .input-content label {
+  color: #657568;
+}
+
+.app:not(.dark) .input-content input {
+  color: #17251a;
+}
+
+.app:not(.dark) .input-content input::placeholder {
+  color: #89968b;
+}
+
+.app:not(.dark) .swap-button {
+  background: #edf5e9;
+  color: #39851f;
+  border-color: rgba(57, 133, 31, .2);
+}
+
+.app:not(.dark) .ride-card {
+  background: linear-gradient(150deg, #ffffff, #f5f8f3);
+  border-color: rgba(25, 50, 30, .12);
+}
+
+.app:not(.dark) .ride-card:hover {
+  border-color: rgba(75, 145, 45, .4);
+  box-shadow: 0 14px 30px rgba(35, 65, 35, .09);
+}
+
+.app:not(.dark) .ride-card.selected {
+  background: linear-gradient(145deg, #edf8e6, #ffffff);
+  border-color: #76bd4b;
+  box-shadow: inset 0 0 0 1px rgba(118, 189, 75, .12);
+}
+
+.app:not(.dark) .selected-check {
+  background: #ffffff;
+  color: #526451;
+  border-color: rgba(25, 50, 30, .15);
+}
+
+.app:not(.dark) .ride-card.selected .selected-check {
+  background: #b6ff68;
+  color: #17251a;
+  border-color: #b6ff68;
+}
+
+.app:not(.dark) .booking-bottom {
+  border-top-color: rgba(25, 50, 30, .12);
+}
+
+.app:not(.dark) .info-icon {
+  background: #edf3e9;
+  color: #39851f;
+}
+
+.app:not(.dark) .booking-result {
+  background: linear-gradient(120deg, #edf8e7, #ffffff);
+  border-color: rgba(80, 145, 50, .25);
+}
+
+.app:not(.dark) .result-details {
+  color: #526453;
+}
+
+.app:not(.dark) .result-details h3 {
+  color: #17251a;
+}
+
+.app:not(.dark) .close-result {
+  color: #526453;
+}
+
+.app:not(.dark) .benefit {
+  background: rgba(255, 255, 255, .8);
+  border-color: rgba(25, 50, 30, .1);
+}
+
+.app:not(.dark) .benefit:hover {
+  border-color: rgba(80, 145, 50, .3);
+}
+
+.app:not(.dark) .footer-brand {
+  color: #17251a;
+}
+
+.app:not(.dark) .site-footer {
+  border-top-color: rgba(25, 50, 30, .12);
+}
+
+.app:not(.dark) .app,
+.app:not(.dark) .benefits {
+  color: #17251a;
+}
+
+
+/* ===== RYDEX PREMIUM LIGHT MODE ===== */
+
+.app:not(.dark) {
+  background:
+    radial-gradient(ellipse at 8% 8%, rgba(165, 225, 133, 0.20), transparent 32%),
+    radial-gradient(ellipse at 92% 28%, rgba(180, 220, 190, 0.20), transparent 34%),
+    linear-gradient(145deg, #f3f8ef 0%, #f8faf7 48%, #edf5e9 100%);
+  color: #17291c;
+}
+
+/* Navbar */
+.app:not(.dark) .navbar {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(66, 111, 58, 0.13);
+  box-shadow: 0 4px 25px rgba(43, 76, 39, 0.04);
+}
+
+/* Hero section */
+.app:not(.dark) .hero h1 {
+  background: linear-gradient(110deg, #17291c 15%, #397b2e 65%, #78ad4b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.app:not(.dark) .hero-visual {
+  background:
+    radial-gradient(ellipse at 50% 25%, rgba(157, 219, 120, 0.38), transparent 45%),
+    linear-gradient(140deg, #e0efd9, #f9fcf7 55%, #dcebd7);
+  border: 1px solid rgba(91, 143, 74, 0.22);
+  border-radius: 28px;
+  box-shadow:
+    0 25px 65px rgba(53, 92, 45, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Booking card */
+.app:not(.dark) .booking-card {
+  background: linear-gradient(145deg, #ffffff 0%, #fbfdf9 100%);
+  border: 1px solid rgba(77, 125, 63, 0.18);
+  border-radius: 25px;
+  box-shadow:
+    0 24px 60px rgba(43, 75, 38, 0.09),
+    0 3px 10px rgba(43, 75, 38, 0.035);
+}
+
+/* Pickup and drop-off inputs */
+.app:not(.dark) .location-input {
+  background: linear-gradient(135deg, #f8fbf6, #f0f6ec);
+  border: 1px solid #dce8d6;
+  border-radius: 14px;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.app:not(.dark) .location-input:focus-within {
+  border-color: #7dbb5d;
+  box-shadow: 0 0 0 4px rgba(115, 177, 80, 0.12);
+}
+
+/* Ride cards */
+.app:not(.dark) .ride-card {
+  background: linear-gradient(145deg, #ffffff, #f7faf4);
+  border: 1px solid #e0e9dc;
+  border-radius: 19px;
+  box-shadow: 0 5px 18px rgba(43, 75, 38, 0.035);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.app:not(.dark) .ride-card:hover {
+  transform: translateY(-4px);
+  border-color: #a7ce91;
+  box-shadow: 0 13px 30px rgba(43, 75, 38, 0.09);
+}
+
+.app:not(.dark) .ride-card.selected {
+  background:
+    radial-gradient(ellipse at top right, rgba(182, 232, 151, 0.23), transparent 65%),
+    linear-gradient(145deg, #f0f9e9, #ffffff);
+  border: 1.5px solid #76b653;
+  box-shadow: 0 8px 26px rgba(79, 143, 54, 0.11);
+}
+
+/* Buttons */
+.app:not(.dark) .book-button,
+.app:not(.dark) .primary-button {
+  background: linear-gradient(120deg, #347e28, #55a83b);
+  color: #ffffff;
+  border: 1px solid rgba(45, 112, 31, 0.25);
+  box-shadow: 0 8px 20px rgba(58, 135, 40, 0.20);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.app:not(.dark) .book-button:hover,
+.app:not(.dark) .primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(58, 135, 40, 0.27);
+}
+
+/* Benefits */
+.app:not(.dark) .benefit {
+  background: linear-gradient(145deg, #ffffff, #f4f9f0);
+  border: 1px solid rgba(77, 125, 63, 0.15);
+  border-radius: 19px;
+  box-shadow: 0 8px 25px rgba(43, 75, 38, 0.045);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.app:not(.dark) .benefit:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(43, 75, 38, 0.09);
+}
+
+/* Small labels and icons */
+.app:not(.dark) .info-icon {
+  background: linear-gradient(145deg, #e5f4dc, #d5edc9);
+  color: #347e28;
+  border: 1px solid rgba(77, 125, 63, 0.12);
+}
+
+.app:not(.dark) .visual-label,
+.app:not(.dark) .live-status {
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(77, 125, 63, 0.15);
+  box-shadow: 0 5px 18px rgba(43, 75, 38, 0.06);
+}
+
+/* Footer */
+.app:not(.dark) .site-footer {
+  border-top: 1px solid rgba(66, 111, 58, 0.15);
+  background: rgba(239, 247, 235, 0.48);
+}
+
+/* Smooth theme transition */
+.app,
+.app * {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: .22s;
+  transition-timing-function: ease;
+}
+
+.app .ride-card,
+.app .benefit,
+.app .book-button,
+.app .primary-button {
+  transition: transform .25s ease, box-shadow .25s ease,
+    background-color .22s ease, border-color .22s ease;
+}

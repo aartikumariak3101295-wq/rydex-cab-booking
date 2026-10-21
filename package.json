@@ -1,0 +1,26 @@
+{
+  "name": "rydex-backend",
+  "version": "1.0.0",
+  "description": "Rydex cab booking backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "vite --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^5.0.0",
+    "leaflet": "^1.9.4",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-leaflet": "^5.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.2",
+    "nodemon": "^3.1.0",
+    "vite": "^8.3.4"
+  }
+}
