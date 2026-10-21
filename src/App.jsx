@@ -1,4 +1,4 @@
-import RideMap from "./RideMap";
+ import RideMap from "./RideMap";
 import { useEffect, useState } from "react";
 import "./App.css";
 
@@ -56,7 +56,7 @@ const rides = [
   },
 ];
 
-const API_URL = "http://localhost:5000/api/bookings";
+const API_URL = "https://rydex-cab-booking.onrender.com/api/bookings";
 
 function calculateFare(ride, distance) {
   if (!ride || !Number.isFinite(distance) || distance <= 0) {
