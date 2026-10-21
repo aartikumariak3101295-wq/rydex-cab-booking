@@ -84,8 +84,8 @@ app.post("/api/payments/create-checkout-session", async (req, res) => {
         },
       ],
       success_url:
-        "http://localhost:5173/?payment=success&session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "http://localhost:5173/?payment=cancelled",
+        "https://rydex-cab-booking.vercel.app/?payment=success&session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "https://rydex-cab-booking.vercel.app/?payment=cancelled",
     });
 
     return res.json({
