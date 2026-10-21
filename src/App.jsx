@@ -432,7 +432,9 @@ async function payForBooking() {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/payments/create-checkout-session",
+      
+"https://rydex-cab-booking.onrender.com/api/payments/create-checkout-session",
+
       {
         method: "POST",
         headers: {
